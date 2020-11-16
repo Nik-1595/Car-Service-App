@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: MyHomePage(),
+    home: LoginPage(),
   ));
 }
 
@@ -16,9 +17,10 @@ class MyHomePage extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 50),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text(
                     "Welcome",
@@ -61,13 +63,23 @@ class MyHomePage extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    decoration: BoxDecoration(),
+                    padding: EdgeInsets.only(top: 3, left: 3),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border(
+                        bottom: BorderSide(color: Colors.black),
+                        top: BorderSide(color: Colors.black),
+                        right: BorderSide(color: Colors.black),
+                        left: BorderSide(color: Colors.black),
+                      ),
+                    ),
                     child: MaterialButton(
                       minWidth: double.infinity,
                       height: 60,
                       onPressed: () {},
+                      color: Colors.yellow,
+                      elevation: 0,
                       shape: RoundedRectangleBorder(
-                          side: BorderSide(color: Colors.black),
                           borderRadius: BorderRadius.circular(50)),
                       child: Text(
                         "Sign Up",
