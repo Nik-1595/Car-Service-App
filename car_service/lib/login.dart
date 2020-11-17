@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'animation/Fade_animation.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -20,47 +21,96 @@ class LoginPage extends StatelessWidget {
               Navigator.pop(context);
             }),
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: double.infinity,
-        child: Column(
-          children: <Widget>[
-            Column(
-              children: [
-                Column(
+      body: FadeAnimation(
+        1,
+        SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Center(
+                  child: Column(
+                    children: [
+                      Column(
+                        children: <Widget>[
+                          Text(
+                            "Login",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text(
+                            "Login Into Your Account",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.grey[700],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: Column(
+                    children: <Widget>[
+                      makeInput(label: "Email"),
+                      makeInput(label: "Password", obscureText: true),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: Container(
+                    padding: EdgeInsets.only(top: 3, left: 3),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border(
+                        bottom: BorderSide(color: Colors.black),
+                        top: BorderSide(color: Colors.black),
+                        right: BorderSide(color: Colors.black),
+                        left: BorderSide(color: Colors.black),
+                      ),
+                    ),
+                    child: MaterialButton(
+                      minWidth: double.infinity,
+                      height: 60,
+                      onPressed: () {},
+                      color: Colors.greenAccent,
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50)),
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    Text("Dont Have an Account?"),
                     Text(
-                      "Login",
-                      style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    Text(
-                      "Login Into Your Account",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.grey[700],
-                      ),
+                      "Sign In",
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                     ),
                   ],
                 ),
               ],
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
-              child: Column(
-                children: <Widget>[
-                  makeInput(label: "Email"),
-                  makeInput(label: "Password"),
-                  makeInput(label: "Password"),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
@@ -92,6 +142,9 @@ class LoginPage extends StatelessWidget {
               borderSide: BorderSide(color: Colors.grey[400]),
             ),
           ),
+        ),
+        SizedBox(
+          height: 30,
         ),
       ],
     );
