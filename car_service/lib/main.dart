@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
                     FadeAnimation(
                       1,
                       Text(
-                        "Car Dish",
+                        "Car Service Dish",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 30),
                       ),
